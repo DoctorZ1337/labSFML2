@@ -39,7 +39,7 @@ namespace sz
 		{
 			sf::Clock clock;
 
-			MyText myText(m_window, "\"1, 2\"", 7);
+			MyText myText(m_window, "Hello 1, 2!", 30);
 
 			while (m_window.isOpen())
 			{

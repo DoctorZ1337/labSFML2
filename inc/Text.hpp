@@ -44,7 +44,7 @@ namespace sz
 
             sf::Clock clock;
 
-            float charShowTime = m_ShowTime / static_cast<float>(m_text.size());
+            float charShowTime = m_ShowTime / static_cast<float>(m_text.size()-1);
 
             sf::Color currentColor = getRandomColor();
             m_window.clear(currentColor);
@@ -56,12 +56,14 @@ namespace sz
                     currentColor = getRandomColor();
                 }
 
+                text.setString(m_text.substr(0, i+1));
+
                 m_window.clear(currentColor);
-
-                text.setString(m_text.substr(0, i + 1));
-
                 m_window.draw(text);
                 m_window.display();
+
+                if (m_text[i + 1] == '\0')
+                    break;
 
                 sf::sleep(sf::seconds(charShowTime));
             }
